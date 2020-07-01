@@ -10,4 +10,4 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/* \
     && make
 
-CMD ["redis-server", "--port 5001", "--dbfilename raft.rdb", "--loadmodule /redisraft/redisraft.so", "raft-log-filename=raftlog1.db addr=localhost:5001"]
+CMD ["redis-server", "--port 5001", "--dbfilename raft.rdb", "--loadmodule /redisraft/redisraft.so", "raft-log-filename=raftlog.db addr=localhost:5001"]

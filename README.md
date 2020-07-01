@@ -1,6 +1,5 @@
 # verification_redis_raft
-Verification of RedisRaft
-
+Tools to easily verification RedisRaft with Docker
 
 ## how to use 
 
@@ -11,5 +10,6 @@ git submodule update
 cd redisraft 
 git submodule init
 git submodule update
-make
+ 
+./cluster_setup.bash
 ```

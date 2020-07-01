@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  redisreft01:
+    image: bootjp/redis_raft:latest
+    ports:
+      - "5001:5001"
+    networks:
+      - nodes
+    environment:
+      - PORT=5001
+
+  redisreft02:
+    image: bootjp/redis_raft:latest
+    ports:
+      - "5002:5001"
+    networks:
+      - nodes
+    environment:
+      - PORT=5002
+
+  redisreft03:
+    image: bootjp/redis_raft:latest
+    ports:
+      - "5003:5001"
+    networks:
+      - nodes
+    environment:
+      - PORT=5003
+
+networks:
+  nodes:
+
