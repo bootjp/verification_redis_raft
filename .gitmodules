@@ -1,0 +1,3 @@
+[submodule "redisraft"]
+	path = redisraft
+	url = git@github.com:RedisLabs/redisraft.git
