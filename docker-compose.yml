@@ -1,11 +1,24 @@
 version: "3.8"
 services:
+  benchmarker:
+    image: redislabs/memtier_benchmark:latest
+    depends_on:
+      - redisreft01
+      - redisreft02
+      - redisreft03
+    networks:
+      node:
+        ipv4_address: 10.2.0.30
+    command: sleep infinity
+    entrypoint: ""
+
   redisreft01:
     image: bootjp/redis_raft:latest
     ports:
       - "5001:5001"
     networks:
-      - nodes
+      node:
+        ipv4_address: 10.2.0.11
     environment:
       - PORT=5001
 
@@ -14,7 +27,8 @@ services:
     ports:
       - "5002:5001"
     networks:
-      - nodes
+      node:
+        ipv4_address: 10.2.0.12
     environment:
       - PORT=5002
 
@@ -23,10 +37,15 @@ services:
     ports:
       - "5003:5001"
     networks:
-      - nodes
+      node:
+        ipv4_address: 10.2.0.13
     environment:
       - PORT=5003
 
 networks:
-  nodes:
+  node:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.2.0.0/16
 
