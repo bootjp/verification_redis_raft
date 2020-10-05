@@ -5,7 +5,7 @@ COPY ./redisraft /redisraft
 WORKDIR /redisraft
 
 RUN apt update \
-    && apt install -y make automake gcc cmake libbsd-dev libtool \
+    && apt install -y make automake gcc cmake libbsd-dev libtool libuv1-dev libuv1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && make

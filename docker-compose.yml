@@ -8,6 +8,11 @@ services:
       - nodes
     environment:
       - PORT=5001
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
 
   redisreft02:
     image: bootjp/redis_raft:latest
@@ -17,6 +22,11 @@ services:
       - nodes
     environment:
       - PORT=5002
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
 
   redisreft03:
     image: bootjp/redis_raft:latest
@@ -26,6 +36,11 @@ services:
       - nodes
     environment:
       - PORT=5003
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
 
 networks:
   nodes:
